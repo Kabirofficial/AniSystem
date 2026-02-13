@@ -6,7 +6,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
     const location = useLocation();
 
     const links = [
-        { name: 'Dashboard', path: '/', icon: LayoutDashboard },
+        { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
         { name: 'Search', path: '/search', icon: Search },
         { name: 'Schedule', path: '/calendar', icon: Calendar },
         { name: 'Support', path: '/support', icon: HelpCircle },
@@ -26,8 +26,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
                 "fixed left-0 top-0 h-screen w-[260px] bg-bg-panel border-r border-white/5 flex flex-col z-50 transition-transform duration-300 ease-in-out md:translate-x-0",
                 isOpen ? "translate-x-0" : "-translate-x-full"
             )}>
-                {/* Brand Header */}
-                <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                <Link to="/dashboard" className="p-6 border-b border-white/5 flex items-center justify-between hover:bg-white/5 transition-colors">
                     <div className="flex items-center gap-3">
                         <img src="/logo.png" alt="AniSystem Logo" className="w-8 h-8 rounded-lg shadow-sm" />
                         <div>
@@ -36,10 +35,10 @@ export const Sidebar = ({ isOpen, onClose }) => {
                         </div>
                     </div>
                     {/* Close button for mobile */}
-                    <button onClick={onClose} className="md:hidden text-text-muted hover:text-white">
+                    <button onClick={(e) => { e.preventDefault(); onClose(); }} className="md:hidden text-text-muted hover:text-white">
                         <X size={20} />
                     </button>
-                </div>
+                </Link>
 
                 {/* Navigation */}
                 <nav className="flex-1 p-4 space-y-1 mt-2">

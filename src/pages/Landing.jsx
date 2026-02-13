@@ -133,10 +133,10 @@ export const Landing = () => {
             {/* Simple Footer */}
             <footer className="py-8 border-t border-white/5 text-center text-sm text-text-muted">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p>© 2024 AniSystem. Open source usage.</p>
+                    <p>&copy; {new Date().getFullYear()} AniSystem. Open source usage.</p>
                     <div className="flex gap-6">
                         <Link to="/support" className="hover:text-white transition-colors">Support</Link>
-                        <a href="https://github.com" target="_blank" rel="noopener" className="hover:text-white transition-colors">GitHub</a>
+                        <a href="https://github.com/Kabirofficial/AniSystem" target="_blank" rel="noopener" className="hover:text-white transition-colors">GitHub</a>
                     </div>
                 </div>
             </footer>
