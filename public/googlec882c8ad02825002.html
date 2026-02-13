@@ -1,1 +1,111 @@
-google-site-verification: googlec882c8ad02825002.html
+google-site-verification: googlec882c8ad02825002.htmlROLE:
+You are a **Senior React Engineer and Frontend Feature Architect** tasked with implementing a **“Add to Device Calendar” integration** in a backendless media tracking application.
+
+---
+
+# OBJECTIVE
+
+Add functionality allowing users to export anime or media release events directly to their **mobile or desktop calendar** using dynamically generated **ICS (iCalendar) event files**, without requiring any backend.
+
+---
+
+# FEATURE REQUIREMENTS
+
+## 1. Add “Add to Calendar” Button
+
+For every tracked media item (card, dashboard entry, or calendar view), include a button:
+
+**Label:**
+`Add to Device Calendar`
+
+This button should generate a downloadable `.ics` file containing the release information.
+
+---
+
+## 2. ICS Event Generation Logic
+
+When the button is clicked:
+
+* Generate ICS file dynamically in the frontend
+* Include:
+
+  * Event title (anime/media title)
+  * Episode or release description
+  * Start date/time (UTC formatted)
+  * End date/time (1 hour default duration)
+  * Reminder (optional 15-minute alarm)
+
+Example ICS structure:
+
+```
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:{MEDIA_TITLE} Episode Release
+DTSTART:{START_DATE_UTC}
+DTEND:{END_DATE_UTC}
+DESCRIPTION:New episode release reminder
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+```
+
+---
+
+## 3. Download Trigger
+
+Create a Blob and trigger download automatically:
+
+```
+const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+const url = URL.createObjectURL(blob);
+const link = document.createElement('a');
+link.href = url;
+link.download = `${title}-release.ics`;
+link.click();
+URL.revokeObjectURL(url);
+```
+
+Ensure the file opens correctly on **Android, iOS, Google Calendar, Apple Calendar, and Outlook**.
+
+---
+
+## 4. Optional Enhancement
+
+Also add a secondary button:
+
+**“Add to Google Calendar”**
+
+which opens:
+
+```
+https://www.google.com/calendar/render?action=TEMPLATE
+```
+
+with prefilled event data.
+
+---
+
+# PERFORMANCE & UX REQUIREMENTS
+
+* No backend usage
+* Lightweight client-side generation
+* Button visible in MediaCard and Release sections
+* Provide success toast message after download
+* Ensure release time is converted properly to UTC before ICS creation
+
+---
+
+# OUTPUT REQUIREMENTS
+
+Return:
+
+1. Utility function for ICS generation
+2. Calendar integration button component
+3. Example MediaCard integration
+4. Google Calendar URL generator (optional)
+5. Confirmation that events can be added directly to mobile calendars without backend services

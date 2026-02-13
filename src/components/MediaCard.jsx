@@ -4,6 +4,7 @@ import useMediaStore from '../store/useMediaStore';
 import { Button } from './Button';
 import { clsx } from 'clsx';
 import { useState, memo } from 'react';
+import { AddToCalendarButton } from './AddToCalendarButton';
 
 export const MediaCard = memo(({ item, onClick, showActions = true }) => {
     const { addToWatchlist, watchlist, removeFromWatchlist } = useMediaStore();
@@ -81,7 +82,7 @@ export const MediaCard = memo(({ item, onClick, showActions = true }) => {
                 {/* Quick Action Button - Visible on Hover */}
                 {showActions && (
                     <div className={clsx(
-                        "absolute bottom-4 left-4 right-4 transition-all duration-300 transform",
+                        "absolute bottom-4 left-4 right-4 transition-all duration-300 transform flex flex-col gap-2",
                         isHovered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                     )}>
                         <Button
@@ -92,6 +93,9 @@ export const MediaCard = memo(({ item, onClick, showActions = true }) => {
                         >
                             {inWatchlist ? 'Remove' : 'Track Title'}
                         </Button>
+                        {item.nextAiring && (
+                            <AddToCalendarButton item={item} className="w-full" compact={false} />
+                        )}
                     </div>
                 )}
             </div>
