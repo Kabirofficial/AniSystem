@@ -2,6 +2,7 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
 import { Suspense, lazy } from 'react';
 import { Skeleton } from './components/Skeleton';
+import { InstallPrompt } from './components/InstallPrompt';
 
 // Lazy Load Pages
 const Landing = lazy(() => import('./pages/Landing').then(module => ({ default: module.Landing })));

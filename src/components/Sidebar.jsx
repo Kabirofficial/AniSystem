@@ -23,8 +23,8 @@ export const Sidebar = ({ isOpen, onClose }) => {
             )}
 
             <aside className={clsx(
-                "fixed left-0 top-0 h-screen w-[260px] bg-bg-panel border-r border-white/5 flex flex-col z-50 transition-transform duration-300 ease-in-out md:translate-x-0",
-                isOpen ? "translate-x-0" : "-translate-x-full"
+                "fixed left-0 top-0 h-screen w-[260px] bg-bg-panel border-r border-white/5 flex flex-col z-50 transition-transform duration-300 ease-in-out md:translate-x-0 will-change-transform",
+                isOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
             )}>
                 <Link to="/dashboard" className="p-6 border-b border-white/5 flex items-center justify-between hover:bg-white/5 transition-colors">
                     <div className="flex items-center gap-3">

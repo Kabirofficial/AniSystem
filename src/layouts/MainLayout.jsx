@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Menu } from 'lucide-react';
 import { Footer } from '../components/Footer';
 import { NotificationManager } from '../components/NotificationManager';
+import { InstallPrompt } from '../components/InstallPrompt';
 
 export const MainLayout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,6 +12,7 @@ export const MainLayout = () => {
     return (
         <div className="flex min-h-screen bg-bg-main text-text-main">
             <NotificationManager />
+            <InstallPrompt />
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
             <main className="flex-1 md:ml-[260px] transition-all duration-300">

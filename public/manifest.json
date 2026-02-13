@@ -1,0 +1,16 @@
+{
+    "name": "AniSystem - Media Tracker",
+    "short_name": "AniSystem",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#070B1A",
+    "theme_color": "#070B1A",
+    "description": "Track your favorite anime, manga, and TV shows in one place.",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "192x192 512x512",
+            "type": "image/png"
+        }
+    ]
+}

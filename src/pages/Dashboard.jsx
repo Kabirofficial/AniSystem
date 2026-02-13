@@ -98,7 +98,7 @@ export const Dashboard = () => {
                         </div>
 
                         {watching.length > 0 ? (
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                 {watching.map(item => (
                                     <MediaCard key={item.id} item={item} />
                                 ))}
@@ -121,7 +121,7 @@ export const Dashboard = () => {
                             <div className="flex items-center justify-between border-b border-white/5 pb-2">
                                 <h2 className="text-xl font-semibold text-text-main">Up Next</h2>
                             </div>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                 {planned.map(item => (
                                     <MediaCard key={item.id} item={item} />
                                 ))}
@@ -182,7 +182,7 @@ export const Dashboard = () => {
                     <div className="flex items-center justify-between border-b border-white/5 pb-2">
                         <h2 className="text-xl font-semibold text-text-main">Completed History</h2>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6">
                         {completed.map(item => (
                             <MediaCard key={item.id} item={item} />
                         ))}
