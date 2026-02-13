@@ -1,0 +1,2 @@
+# Enforce Unix-style line endings in the repo, but let Windows use CRLF locally
+* text=auto
